@@ -53,12 +53,12 @@ document.getElementById("guideForm").addEventListener("submit", function(e){
   const formData = new FormData(e.target);
   const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-  fetch("fetch("https://script.google.com/a/macros/teamonetour.com/s/AKfycbwkxethlOKv3RulnJeWuU4BFkFSQpMpXI8zJoGFvlJHBpX8OawFhj8zrilQ5LMAOz6gzA/exec", {
-", {
-    method: "POST",
-    body: json,
-    headers: { "Content-Type": "application/json" }
-  })
+ fetch("https://script.google.com/a/macros/teamonetour.com/s/AKfycbwkxethlOKv3RulnJeWuU4BFkFSQpMpXI8zJoGFvlJHBpX8OawFhj8zrilQ5LMAOz6gzA/exec", {
+  method: "POST",
+  body: json,
+  headers: { "Content-Type": "application/json" }
+})
+
   .then(res => res.json())
   .then(data => {
     alert("등록 완료!");
