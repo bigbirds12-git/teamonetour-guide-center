@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Guide Registration</title>
+<style>
+  body { font-family: Arial; max-width: 600px; margin: auto; padding: 20px; }
+  label { display: block; margin-top: 15px; font-weight: bold; }
+  input, textarea {
+    width: 100%; padding: 10px; margin-top: 5px;
+    border: 1px solid #ccc; border-radius: 5px;
+  }
+  button {
+    margin-top: 20px; padding: 12px 20px;
+    background: #007bff; color: white; border: none;
+    border-radius: 5px; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>가이드 등록</h2>
+
+<form id="guideForm">
+  <label>이름</label>
+  <input type="text" name="name" required>
+
+  <label>연락처</label>
+  <input type="text" name="phone" required>
+
+  <label>이메일</label>
+  <input type="email" name="email" required>
+
+  <label>활동 지역</label>
+  <input type="text" name="area">
+
+  <label>가능 언어</label>
+  <input type="text" name="languages">
+
+  <label>경력</label>
+  <input type="number" name="experience">
+
+  <label>소개</label>
+  <textarea name="intro"></textarea>
+
+  <button type="submit">등록하기</button>
+</form>
+
+<script>
+document.getElementById("guideForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const json = JSON.stringify(Object.fromEntries(formData.entries()));
+
+  fetch("YOUR_APPS_SCRIPT_URL", {
+    method: "POST",
+    body: json,
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("등록 완료!");
+    e.target.reset();
+  })
+  .catch(err => alert("오류 발생: " + err));
+});
+</script>
+
+</body>
+</html>
 
