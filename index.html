@@ -53,7 +53,7 @@ document.getElementById("guideForm").addEventListener("submit", function(e){
   const formData = new FormData(e.target);
   const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-fetch("https://script.google.com/macros/s/AKfycbwkxethlOKv3RulnJeWuU4BFkFSQpMpXI8zJoGFvlJHBpX8OawFhj8zrilQ5LMAOz6gzA/exec", {
+fetch("https://script.google.com/macros/s/AKfycbzgso6kFs2jeTIXcbvfQn5s02X1vQT7SfVAUvj7fiO7omjTCHQ87u1YR7Tmv5P5EERE_Q/exec", {
   method: "POST",
   body: json,
   headers: { "Content-Type": "application/json" }
